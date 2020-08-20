@@ -37,7 +37,7 @@ namespace YGCGanpati.Controllers
 
                 
                 byte[] fileBytes = doc.Save();
-                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf, collection.FlatNo + "_" + collection.Name + ".pdf");
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf, collection.FlatNo + " " + collection.Name + ".pdf");
             }
              
         }
@@ -186,7 +186,7 @@ td { padding-top: 15px; padding-bottom: 15px; line-height: 1.6; }
 <img src='http://ganpati.ygconline.com/images/ygc.png' class='img2' height='100px' />
 <div style='border:ridge; border-radius: 10px; width:97%; height:590px; text-align: center; padding:10px;'>  
 <h1>Yashraj Green Castle Ganpati Festival</h1>
-<h3>Kale Padal, Hadapsar, Pune-422003<h3> 
+<h3>Kale Padal, Hadapsar, Pune-411028<h3> 
 <hr/>
 <table>
 	<tr>
@@ -198,7 +198,7 @@ td { padding-top: 15px; padding-bottom: 15px; line-height: 1.6; }
         <td style='text-align: right;'><b>Date</b> :- <i>{{Date}}</i></td>
     </tr>
     <tr>
-    	<td colspan='3'>Received with thanks from <b>{{Name}} ({{FlatNo}})</b> the sum of &nbsp; <i> ₹ {{Amount}}/- <br/>({{AmountWord}}) </i> by Cash towards Yashraj Green Castle Ganesh Festival Fund.</td>
+    	<td colspan='3'>Received with thanks from <b>{{Name}} ({{FlatNo}})</b> the sum of &nbsp; <i> ₹ {{Amount}}/- <br/>({{AmountWord}}) </i> by Cash towards Yashraj Green Castle Ganpati Festival Fund.</td>
     </tr>
     <tr>
     	<td colspan='3' style='text-align: right; padding-top:40px;'>
