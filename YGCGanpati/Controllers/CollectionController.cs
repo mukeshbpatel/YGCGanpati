@@ -37,7 +37,7 @@ namespace YGCGanpati.Controllers
 
                 
                 byte[] fileBytes = doc.Save();
-                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf,"Receipt_" + collection.FlatNo + "_" + collection.Name + ".pdf");
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf, collection.FlatNo + "_" + collection.Name + ".pdf");
             }
              
         }
