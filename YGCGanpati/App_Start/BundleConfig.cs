@@ -24,7 +24,7 @@ namespace YGCGanpati
                       "~/Scripts/respond.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                     "~/Content/bootstrap.min.css", "~/Content/Site.css", "~/Content/font-awesome.min.css"));
+                     "~/Content/bootstrap.min.css", "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/font").Include("~/Content/font-awesome.min.css"));
         }

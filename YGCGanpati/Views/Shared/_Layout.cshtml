@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -40,8 +41,8 @@
         @RenderBody()
         <hr />
         @*<footer>
-            <p>&copy; @DateTime.Now.Year - Yashraj Green Castle Ganpati Festival</p>
-        </footer>*@
+                <p>&copy; @DateTime.Now.Year - Yashraj Green Castle Ganpati Festival</p>
+            </footer>*@
         <footer>
             <div>
                 &copy; @DateTime.Now.Year - Yashraj Green Castle
@@ -55,66 +56,65 @@
     </div>
 
     <script type="text/javascript">
-    //if (navigator.userAgent.indexOf('Chrome') != -1) {
-    //    if (!Modernizr.inputtypes['date']) {
-    //        $('input[type=date]').datepicker({
-    //            dateFormat: 'yy-mm-dd'
-    //        });
-    //    }
-    //}
-    //$('input[type="date"]').attr('type', 'text');
+        //if (navigator.userAgent.indexOf('Chrome') != -1) {
+        //    if (!Modernizr.inputtypes['date']) {
+        //        $('input[type=date]').datepicker({
+        //            dateFormat: 'yy-mm-dd'
+        //        });
+        //    }
+        //}
+        //$('input[type="date"]').attr('type', 'text');
 
 
-$("#search").keyup(function () {
-    var value = this.value.toLowerCase().trim();
+        $("#search").keyup(function () {
+            var value = this.value.toLowerCase().trim();
 
-    $(".table tr").each(function (index) {
-        if (!index) {
-calculate();
-return;
-}
-        $(this).find("td").each(function () {
-            var id = $(this).text().toLowerCase().trim();
-            var not_found = (id.indexOf(value) == -1);
-            $(this).closest('tr').toggle(!not_found);
-            return not_found;
+            $(".table tr").each(function (index) {
+                if (!index) {
+                    calculate();
+                    return;
+                }
+                $(this).find("td").each(function () {
+                    var id = $(this).text().toLowerCase().trim();
+                    var not_found = (id.indexOf(value) == -1);
+                    $(this).closest('tr').toggle(!not_found);
+                    return not_found;
+                });
+            });
+            calculate();
         });
-    });
-calculate();
-});
 
-$("#filters").change(function () {
-    var value = this.value.toLowerCase().trim();
-    //alert(value);
-    $(".table tr").each(function (index) {
-        if (!index) {
-calculate();
-return;
-}
-        $(this).find("td").each(function () {
-            var id = $(this).text().toLowerCase().trim();
-            var not_found = (id.indexOf(value) == -1);
-            $(this).closest('tr').toggle(!not_found);
-            return not_found;
+        $("#filters").change(function () {
+            var value = this.value.toLowerCase().trim();
+            //alert(value);
+            $(".table tr").each(function (index) {
+                if (!index) {
+                    calculate();
+                    return;
+                }
+                $(this).find("td").each(function () {
+                    var id = $(this).text().toLowerCase().trim();
+                    var not_found = (id.indexOf(value) == -1);
+                    $(this).closest('tr').toggle(!not_found);
+                    return not_found;
+                });
+            });
+            calculate();
         });
-    });
-calculate();
-});
 
-function calculate()
-{
-$('#total').text('0.00');
-var result = [];
-  $('.table tbody tr').each(function(){
-  	if($(this).css('display') != 'none' )
-  	$('td', this).each(function(index, val){
-    if(!result[index]) result[index] = 0;    	       
-      	result[index] += parseInt($(val).text());      
-    });
-  });
-  
-  $('#total').text(result[2]);  
-}
+        function calculate() {
+            $('#total').text('0.00');
+            var result = [];
+            $('.table tbody tr').each(function () {
+                if ($(this).css('display') != 'none')
+                    $('td', this).each(function (index, val) {
+                        if (!result[index]) result[index] = 0;
+                        result[index] += parseInt($(val).text());
+                    });
+            });
+
+            $('#total').text(result[2]);
+        }
 
     </script>
 </body>

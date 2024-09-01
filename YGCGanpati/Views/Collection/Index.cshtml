@@ -67,11 +67,11 @@
                 </td>
                 @if (User.IsInRole("Admin") | User.IsInRole("Manager"))
                 {
-            <td>
-                <a href="@Url.Action("Receipt", new { id = item.CollectionID })"><span class="glyphicon glyphicon-list-alt"></span></a>                
-                <a href="@Url.Action("Edit", new { id = item.CollectionID })"><span class="glyphicon glyphicon-edit"></span></a>
-                <a href="@Url.Action("Delete", new { id = item.CollectionID })"><span class="glyphicon glyphicon-remove"></span></a>
-            </td>
+                    <td>
+                        <a href="@Url.Action("Receipt", new { id = item.CollectionID })"><span class="glyphicon glyphicon-list-alt"></span></a>
+                        <a href="@Url.Action("Edit", new { id = item.CollectionID })"><span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="@Url.Action("Delete", new { id = item.CollectionID })"><span class="glyphicon glyphicon-remove"></span></a>
+                    </td>
                 }
             </tr>
         }
@@ -85,6 +85,6 @@
             {
                 <th></th>
             }
-            </tr>
+        </tr>
     </tfoot>
 </table>

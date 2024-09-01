@@ -199,13 +199,13 @@ namespace YGCGanpati.Controllers
                 if (formCollection["ResetPass"].ToString().ToLower() != "false")
                 {
                    var token = UserManager.GenerateEmailConfirmationToken(id);
-                   var result= UserManager.ResetPassword(id, token, "ganpati@2019");
+                   var result= UserManager.ResetPassword(id, token, "Ganpati@" + DateTime.Now.Year.ToString());
                     if (result.Succeeded)
                     {
                         if (!string.IsNullOrEmpty(usr.Email))
                         {
                             EmailNotification ygcemail = new EmailNotification();
-                            ygcemail.SendForgetPasswordEmail(usr, "ganpati@2019");
+                            ygcemail.SendForgetPasswordEmail(usr, "Ganpati@" + DateTime.Now.Year.ToString());
                             ygcemail = null;
                         }                        
                     }

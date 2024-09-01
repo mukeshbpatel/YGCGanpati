@@ -114,8 +114,7 @@ namespace YGCGanpati.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Display(Name = "Mobile Number")]
+        public string mobileNumber { get; set; }
     }
 }

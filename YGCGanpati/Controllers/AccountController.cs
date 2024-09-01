@@ -217,7 +217,7 @@ namespace YGCGanpati.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = UserManager.FindByEmail(model.Email);
+                var user = UserManager.FindById(model.mobileNumber);
                 if (user == null)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
@@ -227,15 +227,15 @@ namespace YGCGanpati.Controllers
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = UserManager.GeneratePasswordResetToken(user.Id);
-                var result = UserManager.ResetPassword(user.Id, code, "ganpati@2019");
+                var result = UserManager.ResetPassword(user.Id, code, "Ganpati@" + DateTime.Now.Year.ToString());
                 if (result.Succeeded)
                 {
-                    if (!string.IsNullOrEmpty(user.Email))
-                    {
-                        EmailNotification ygcemail = new EmailNotification();
-                        ygcemail.SendForgetPasswordEmail(user,"ganpati@2019");
-                        ygcemail = null;
-                    }
+                    //if (!string.IsNullOrEmpty(user.Email))
+                    //{
+                    //    EmailNotification ygcemail = new EmailNotification();
+                    //    ygcemail.SendForgetPasswordEmail(user, "Ganpati@" + DateTime.Now.Year.ToString());
+                    //    ygcemail = null;
+                    //}
                     return RedirectToAction("ForgotPasswordConfirmation", "Account");
                 }
             }
@@ -250,7 +250,8 @@ namespace YGCGanpati.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
-            return View();
+            ViewBag.Password = "Ganpati@" + DateTime.Now.Year.ToString();
+            return View(ViewBag);
         }
 
         //
