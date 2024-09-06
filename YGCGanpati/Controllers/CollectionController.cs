@@ -215,7 +215,7 @@ td { padding-top: 15px; padding-bottom: 15px; line-height: 1.6; }
         {
             string result = receiptHTML.Replace("{{Date}}", collection.CollectionDate.ToString("dd-MMM-yyyy"))
                                        .Replace("{{Name}}", collection.Name)
-                                       .Replace("{{ReceiptNo}}", (collection.CollectionID - 667).ToString("000"))
+                                       .Replace("{{ReceiptNo}}", (collection.CollectionID).ToString("000"))
                                        .Replace("{{FlatNo}}", collection.FlatNo)
                                        .Replace("{{Amount}}", collection.Amount.ToString("0"))
                                        .Replace("{{AmountWord}}", NumbersToWords(collection.Amount));
