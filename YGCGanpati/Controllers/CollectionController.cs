@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using YGCGanpati.Models;
 using Microsoft.AspNet.Identity;
 using SelectPdf;
+using System.IO;
 
 namespace YGCGanpati.Controllers
 {
@@ -18,7 +19,45 @@ namespace YGCGanpati.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private DateTime dt = DateTime.Now;
 
+      /*  public static Byte[] PdfSharpConvert(String html)
+        {
+            Byte[] res = null;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                var pdf = PdfSharp.PdfGenerator.GeneratePdf(html, PdfSh.PageSize.A4);
+                pdf.Save(ms);
+                res = ms.ToArray();
+            }
+            return res;
+        }*/
+
         public ActionResult Receipt(int id)
+        {
+            Collection collection = db.Collections.Find(id);
+            if (collection == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                HtmlToPdf converter = new HtmlToPdf();
+                converter.Options.PdfPageSize = PdfPageSize.HalfLetter;
+                converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
+                converter.Options.MaxPageLoadTime = 180;
+                converter.Options.WebPageWidth = 1024;
+                converter.Options.WebPageHeight = 0;
+
+                // create a new pdf document converting an url
+                PdfDocument doc = converter.ConvertHtmlString(GetHtml(collection), string.Empty);
+
+
+                byte[] fileBytes = doc.Save();
+                return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf, collection.FlatNo + " " + collection.Name + ".pdf");
+            }
+
+        }
+
+       /* public ActionResult Receipt(int id)
         {
             Collection collection = db.Collections.Find(id);
             if (collection == null)
@@ -40,7 +79,7 @@ namespace YGCGanpati.Controllers
                 return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf, collection.FlatNo + " " + collection.Name + ".pdf");
             }
              
-        }
+        }*/
 
         // GET: Collection
         public ActionResult Index()
