@@ -57,8 +57,7 @@ namespace YGCGanpati.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            return Redirect("https://ygcganpati.azurewebsites.net/");
         }
 
         //
