@@ -1,6 +1,6 @@
 ﻿using System;
-//using System.Collections.Generic;
-//using System.Data;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -8,12 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using YGCGanpati.Models;
 using Microsoft.AspNet.Identity;
-//using SelectPdf;
+using SelectPdf;
 using System.IO;
-using TheArtOfDev.HtmlRenderer.PdfSharp;
-using PdfSharp;
-using System.Drawing.Printing;
-using TheArtOfDev.HtmlRenderer.Core;
 
 namespace YGCGanpati.Controllers
 {
@@ -23,21 +19,17 @@ namespace YGCGanpati.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private DateTime dt = DateTime.Now;
 
-        public static Byte[] PdfSharpConvert(String html)
+      /*  public static Byte[] PdfSharpConvert(String html)
         {
             Byte[] res = null;
             using (MemoryStream ms = new MemoryStream())
             {
-                PdfGenerateConfig pdfGenerateConfig = new PdfGenerateConfig();
-                pdfGenerateConfig.PageSize = PageSize.A4;
-                pdfGenerateConfig.SetMargins(10);
-                pdfGenerateConfig.PageOrientation = PageOrientation.Landscape;
-                var pdf = PdfGenerator.GeneratePdf(html, pdfGenerateConfig, null, null, null);
+                var pdf = PdfSharp.PdfGenerator.GeneratePdf(html, PdfSh.PageSize.A4);
                 pdf.Save(ms);
                 res = ms.ToArray();
             }
             return res;
-        }
+        }*/
 
         public ActionResult Receipt(int id)
         {
@@ -48,18 +40,18 @@ namespace YGCGanpati.Controllers
             }
             else
             {
-                /*HtmlToPdf converter = new HtmlToPdf();
+                HtmlToPdf converter = new HtmlToPdf();
                 converter.Options.PdfPageSize = PdfPageSize.HalfLetter;
                 converter.Options.PdfPageOrientation = PdfPageOrientation.Landscape;
                 converter.Options.MaxPageLoadTime = 180;
                 converter.Options.WebPageWidth = 1024;
-                converter.Options.WebPageHeight = 0;*/
+                converter.Options.WebPageHeight = 0;
 
                 // create a new pdf document converting an url
-                //PdfDocument doc = converter.ConvertHtmlString(GetHtml(collection), string.Empty);
+                PdfDocument doc = converter.ConvertHtmlString(GetHtml(collection), string.Empty);
 
 
-                byte[] fileBytes = PdfSharpConvert(GetHtml(collection));
+                byte[] fileBytes = doc.Save();
                 return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Pdf, collection.FlatNo + " " + collection.Name + ".pdf");
             }
 
@@ -224,17 +216,14 @@ h1 { color: #ff6600;  }
 
 a { color: #ff6600; text-decoration: none; }
 h3 { font-size:18px; }
-table { width: 650px; margin-top: 10px; margin-bottom: 10px; font-size: 20px; font-family: 'Times New Roman', Times, serif;}
-td { padding-top: 10px; padding-bottom: 10px; line-height: 1.5; }
+table { width: 99%; margin-top: 35px; margin-bottom: 20px; font-size: 26px; font-family: 'Times New Roman', Times, serif;}
+td { padding-top: 15px; padding-bottom: 15px; line-height: 1.6; }
 </style>
 </head>
  <body>
-<table>
-    <tr> <td align='left'><img src='http://ganpati.ygconline.com/images/ganesh.png' height='75px'/></td>
-    <td align='right'><img src='http://ganpati.ygconline.com/images/ygc.png' height='75px' /></td></tr>
-</table>
-    
-<div style='border:ridge; border-radius: 10px; width:95%; height:400px; text-align: center; padding:10px;'>  
+<img src='http://ganpati.ygconline.com/images/ganesh.png' class='img1' height='100px' />
+<img src='http://ganpati.ygconline.com/images/ygc.png' class='img2' height='100px' />
+<div style='border:ridge; border-radius: 10px; width:97%; height:590px; text-align: center; padding:10px;'>  
 <h1>Yashraj Green Castle Ganpati Festival</h1>
 <h3>Kale Padal, Hadapsar, Pune-411028<h3> 
 <hr/>
