@@ -245,6 +245,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202508131259327_AddUser.cs" />
+    <Compile Include="Migrations\202508131259327_AddUser.Designer.cs">
+      <DependentUpon>202508131259327_AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CollectionModel.cs" />
     <Compile Include="Models\EmailNotification.cs" />
@@ -401,6 +406,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202508131259327_AddUser.resx">
+      <DependentUpon>202508131259327_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
