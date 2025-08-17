@@ -4,7 +4,7 @@
     ViewBag.Title = "Members";
 }
 
-<h2><i class="glyphicon glyphicon-user"></i> @ViewBag.Title</h2>
+<h2><i class="fa fa-user"></i> @ViewBag.Title</h2>
 
 <div class="pull-right form-inline">
     <select class="form-control input-sm" id="filters">
@@ -49,12 +49,12 @@
             (@Html.DisplayFor(modelItem => item.FlatNo))
         </td>
         <td>
-            <a href="mailto:@item.Email"><span class="glyphicon glyphicon-envelope"></span></a>                        
+            <a href="mailto:@item.Email"><i class="fa fa-envelope"></i></a>                        
         </td>
         @if (User.IsInRole("Admin") | User.IsInRole("Manager"))
         {
         <td>            
-            <a href="@Url.Action("UpdateUser", new { id = item.Id })"><span class="glyphicon glyphicon-edit"></span></a>         
+            <a href="@Url.Action("UpdateUser", new { id = item.Id })"><i class="fa fa-edit"></i></a>         
         </td>
         }
     </tr>

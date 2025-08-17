@@ -7,7 +7,7 @@
 <h2>@ViewBag.Title</h2>
 
 <div>
-    <a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span> Add New</a>
+    <a href="@Url.Action("Create")"><i class="fa fa-plus-square"></i> Add New</a>
 </div>
 
 <table class="table table-condensed">
@@ -30,9 +30,9 @@
             @Html.DisplayFor(modelItem => item.DisplayDate)
         </td>
         <td>
-            <a href="@Url.Action("Details", new { id = item.QuestionID })"><span class="glyphicon glyphicon-info-sign"></span></a>
-            <a href="@Url.Action("Edit", new { id = item.QuestionID })"><span class="glyphicon glyphicon-edit"></span></a>
-            <a href="@Url.Action("Delete", new { id = item.QuestionID })"><span class="glyphicon glyphicon-remove"></span></a>
+            <a href="@Url.Action("Details", new { id = item.QuestionID })"><i class="fa fa-info-circle"></i></a>
+            <a href="@Url.Action("Edit", new { id = item.QuestionID })"><i class="fa fa-edit"></i></a>
+            <a href="@Url.Action("Delete", new { id = item.QuestionID })"><i class="fa fa-remove"></i></a>
         </td>
 
     </tr>

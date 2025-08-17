@@ -6,19 +6,19 @@
     @Html.AntiForgeryToken()
 
     <ul class="nav navbar-nav navbar-right">        
-        @*<li><a href="@Url.Action("Profile", "Manage")"><span class="glyphicon glyphicon-picture"></span> Profile</a></li>*@
+       
 
         <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <span class="glyphicon glyphicon glyphicon-cog"></span> Manage
+                <i class="fa fa-cog"></i> Manage
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="@Url.Action("MyProfile", "Manage")"><span class="glyphicon glyphicon glyphicon-list-alt"></span> Update Profile</a></li>
-                <li><a href="@Url.Action("ChangePassword", "Manage")"><span class="glyphicon glyphicon glyphicon-cog"></span> Change Password</a></li>                
+                <li><a href="@Url.Action("MyProfile", "Manage")"><i class="fa fa-address-card"></i> Update Profile</a></li>
+                <li><a href="@Url.Action("ChangePassword", "Manage")"><i class="fa fa-key"></i> Change Password</a></li>                
             </ul>
     </li>    
-        <li><a href="javascript:document.getElementById('logoutForm').submit()"><span class="glyphicon glyphicon-log-out"></span> Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-sign-out fa-lg"></i> Log off</a></li>
     </ul>
         }
     }
@@ -28,8 +28,8 @@
         @*<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
         <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>*@
 
-        <li><a href="@Url.Action("Register", "Account")"><span class="glyphicon glyphicon-tasks"></span> Register</a></li> 
-        <li><a href="@Url.Action("Login", "Account")"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li> 
+        <li><a href="@Url.Action("Register", "Account")"><i class="fa fa-tasks fa-lg"></i> Register</a></li> 
+        <li><a href="@Url.Action("Login", "Account")"><i class="fa fa-sign-in fa-lg"></i> Log in</a></li> 
         
     </ul>
 }

@@ -4,12 +4,12 @@
     ViewBag.Title = "Events";
 }
 
-<h2><i class="glyphicon glyphicon-calendar"></i> @ViewBag.Title</h2>
+<h2><i class="fa fa-calendar"></i> @ViewBag.Title</h2>
 
 @if (User.IsInRole("Admin") | User.IsInRole("Manager"))
 {
     <div class="pull-right">
-        &nbsp;  <a href="@Url.Action("Create")"><span class="glyphicon glyphicon-plus"></span> Add New</a>
+        &nbsp;  <a href="@Url.Action("Create")"><i class="fa fa-plus-square"></i> Add New</a>
     </div>
 }
 <table id="tbl" class="table table-sm table-hover table-condensed table-bordered">
@@ -31,7 +31,7 @@
         {
             <tr>
                 <td>
-                    <span class="glyphicon glyphicon-calendar"> <b>@Html.DisplayFor(modelItem => item.EventDate)</b></span>
+                    <i class="fa fa-calendar"></i> <b>@Html.DisplayFor(modelItem => item.EventDate)</b>
                 </td>
                 <td>
                     @{
@@ -45,9 +45,9 @@
                 @if (User.IsInRole("Admin") | User.IsInRole("Manager"))
                 {
                     <td>
-                        <a href="@Url.Action("Details", new { id = item.EventID })"><span class="glyphicon glyphicon-info-sign"></span></a>
-                        <a href="@Url.Action("Edit", new { id = item.EventID })"><span class="glyphicon glyphicon-edit"></span></a>
-                        <a href="@Url.Action("Delete", new { id = item.EventID })"><span class="glyphicon glyphicon-remove"></span></a>
+                        <a href="@Url.Action("Details", new { id = item.EventID })"><i class="fa fa-info-circle"></i></a>
+                        <a href="@Url.Action("Edit", new { id = item.EventID })"><i class="fa fa-edit"></i></a>
+                        <a href="@Url.Action("Delete", new { id = item.EventID })"><i class="fa fa-remove"></i></a>
                     </td>
                 }
             </tr>
