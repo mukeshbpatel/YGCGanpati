@@ -34,6 +34,9 @@ namespace YGCGanpati.Models
         [Required]
         [Display(Name = "Event Name")]
         public string EventName { get; set; }
+
+        [Display(Name = "Event Name")]
+        public string EventTime { get; set; }
     }
 
 

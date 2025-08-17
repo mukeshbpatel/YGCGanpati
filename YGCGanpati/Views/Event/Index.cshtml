@@ -31,7 +31,7 @@
         {
             <tr>
                 <td>
-                    <span class="glyphicon glyphicon-calendar"> <b>@Html.DisplayFor(modelItem => item.EventDate)</b></span>
+                    @Html.DisplayFor(modelItem => item.EventDate) @Html.DisplayFor(modelItem => item.EventTime)
                 </td>
                 <td>
                     @{
